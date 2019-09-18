@@ -58,13 +58,19 @@ public class GestionWeb {
 	}
 
 	public void buscarActor(String n, String a) {
-		
+		Actor act = new Actor(n, a);
+		int aux = binarysearch(act, actoresGeneral);
+		if(aux == -1) {
+			System.out.println("actor no encontrado1");
+		}else {
+			System.out.println("actor encontrado en la posicion "+aux+"del arraylist");
+		}
 	}
-	public void binarysearch(Actor a, ArrayList<Actor> AG) {
+	public int binarysearch(Actor a, ArrayList<Actor> AG) {
 		boolean encontrado = false;
 		int i = 0;
 		int j = AG.size()-1;
-		int pos;
+		int pos = -1;
 		int medio;
 		
 		while (encontrado == false && i <= j) {
@@ -72,9 +78,12 @@ public class GestionWeb {
 			if (AG.get(medio).equals(a)) {
 				encontrado = true;
 			}else if (esPrimerString(AG.get(medio).nombre, a.nombre) == false){
-				
-			}else {}
+				j = medio - 1;
+			}else {
+				i = medio +1;
+			}
 		}
+		return pos;
 	}
 	
 }
