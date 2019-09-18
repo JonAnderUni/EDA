@@ -12,6 +12,9 @@ public class GestionWeb {
 	public void addPelicula(Pelicula a) {
 		pelis.add(a);
 	}
+	public void addListaPeliculas(ArrayList<Pelicula> a) {
+		pelis.addAll(a);
+	}
 	public void addActorGeneral(Actor a) {
 		actoresGeneral.add(a);
 	}
