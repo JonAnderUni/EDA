@@ -12,7 +12,7 @@ public class Actor {
 	public void setNombre(String a) {
 		nombre = a;
 	}
-	public void setApellido(String a) {
+	public  void setApellido(String a) {
 		apellido = a;
 	}
 }

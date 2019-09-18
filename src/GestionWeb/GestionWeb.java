@@ -20,7 +20,7 @@ public class GestionWeb {
 			actoresGeneral.add(b);
 		}
 	}
-	public boolean esPrimerString(String a, String b) {
+	public boolean esPrimerString(String a,  String b) {
 		int comparar = a.compareTo(b);
 		if(comparar < 1) {
 			return true;

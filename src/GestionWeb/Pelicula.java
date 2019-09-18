@@ -9,7 +9,7 @@ public class Pelicula {
 		
 		public Pelicula() {
 		}
-		public Pelicula(String a, ArrayList<Actor> b) {
+		public  Pelicula(String a, ArrayList<Actor> b) {
 			titulo = a;
 			actores = b;
 		}
