@@ -5,10 +5,10 @@ import java.util.*;
 public class ListaActores {
 
 	private static ListaActores mListaActores = null;
-	private ArrayList<Actor> lista;
+	private HashMap<String, Actor> lista;
 	
 	private ListaActores() {
-		lista = new ArrayList<Actor>();
+		lista = new HashMap<String, Actor>();
 	}
 	
 	public static ListaActores getListaActores() {
