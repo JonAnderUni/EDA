@@ -41,7 +41,7 @@ public class GestionWeb {
 	public ArrayList<Actor> actoresDePeli(String a) {
 		return buscarPeli(a).actores;
 	}
-	public void pelisDeActor() {
+	public void pelisDeActor(Actor a) {
 		
 	}
 /*	public void quicksort(ArrayList<Actor> AG, int c1, int c2) {
