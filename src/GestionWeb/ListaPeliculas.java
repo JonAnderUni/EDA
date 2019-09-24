@@ -16,4 +16,7 @@ public class ListaPeliculas {
 		return mListaPeliculas;
 	}
 	
+	public HashMap<String, Pelicula> getHash(){
+		return lista;
+	}
 }
