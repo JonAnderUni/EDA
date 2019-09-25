@@ -19,9 +19,7 @@ public class ListaPeliculas {
 	}
 
 	public HashMap<String, Pelicula> getHash() {
-
 		return lista;
-
 	}
 
 }

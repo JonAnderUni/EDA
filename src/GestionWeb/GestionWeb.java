@@ -4,24 +4,24 @@ import java.util.*;
 
 public class GestionWeb {
 
-	public ArrayList<Pelicula> pelis = new ArrayList<Pelicula>();
-	public ArrayList<Actor> actoresGeneral = new ArrayList<Actor>();
+	//public ListaPeliculas pelis;
+	//public ListaActores actoresGeneral;
 	
 	public GestionWeb() {}
 	
 	public void addPelicula(Pelicula a) {
-		pelis.add(a);
+		ListaPeliculas.getListaPeliculas().getHash().put(a.titulo, a);
 	}
-	public void addListaPeliculas(ArrayList<Pelicula> a) {
-		pelis.addAll(a);
+	public void addListaPeliculas(HashMap<String, Pelicula> a) {
+		ListaPeliculas.getListaPeliculas().getHash().putAll(a);
 	}
 	public void addActorGeneral(Actor a) {
-		actoresGeneral.add(a);
+		ListaActores.getListaActores().getHash().put(a.nombre, a);
 	}
-	public void addListaActorGeneral(ArrayList<Actor> a) {
-		for (Actor b: a) {
-			actoresGeneral.add(b);
-		}
+	public void addListaActorGeneral(HashMap<String, Actor> a) {
+		
+			ListaActores.getListaActores().getHash().putAll(a);
+		
 	}
 	public boolean esPrimerString(String a,  String b) {
 		int comparar = a.compareTo(b);
@@ -31,7 +31,20 @@ public class GestionWeb {
 			return false;
 		}
 	}
-	public void quicksort(ArrayList<Actor> AG, int c1, int c2) {
+	
+	public Actor buscarActor(String a) {
+		return ListaActores.getListaActores().getHash().get(a);
+	}
+	public Pelicula buscarPeli(String a) {
+		return ListaPeliculas.getListaPeliculas().getHash().get(a);
+	}
+	public ArrayList<Actor> actoresDePeli(String a) {
+		return buscarPeli(a).actores;
+	}
+	public void pelisDeActor(Actor a) {
+		
+	}
+/*	public void quicksort(ArrayList<Actor> AG, int c1, int c2) {
 		if(AG.isEmpty()) {	
 		}else {
 			Actor pivote = AG.get(c1);
@@ -55,12 +68,12 @@ public class GestionWeb {
 			if(1<j-1) {quicksort(AG, izq, j-1);}
 			if(j+1<AG.size()) {quicksort(AG, j+1, der);}
 		}
-	}
-	public void ordenarActoresGeneral() {
+	}*/
+	/*public void ordenarActoresGeneral() {
 		quicksort(actoresGeneral, 0, actoresGeneral.size()-1);
-	}
+	}*/
 
-	public void buscarActor(String n, String a) {
+	/*public void buscarActor(String n, String a) {
 		Actor act = new Actor(n, a);
 		int aux = binarysearch(act, actoresGeneral);
 		if(aux == -1) {
@@ -68,8 +81,8 @@ public class GestionWeb {
 		}else {
 			System.out.println("actor encontrado en la posicion "+aux+"del arraylist");
 		}
-	}
-	public int binarysearch(Actor a, ArrayList<Actor> AG) {
+	}*/
+	/*public int binarysearch(Actor a, ArrayList<Actor> AG) {
 		boolean encontrado = false;
 		int i = 0;
 		int j = AG.size()-1;
@@ -87,6 +100,6 @@ public class GestionWeb {
 			}
 		}
 		return pos;
-	}
+	}*/
 	
 }

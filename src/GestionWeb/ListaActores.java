@@ -15,4 +15,7 @@ public class ListaActores {
 		if(mListaActores == null) mListaActores = new ListaActores();
 		return mListaActores;
 	}
+	public HashMap<String, Actor> getHash(){
+		return lista;
+	}
 }
