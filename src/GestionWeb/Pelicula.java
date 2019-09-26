@@ -3,15 +3,22 @@ import java.util.*;
 
 public class Pelicula {
 
-		public String titulo;
-		public ArrayList<Actor> actores = new ArrayList<Actor>();
+		private String titulo;
+		private ArrayList<Actor> actores = new ArrayList<Actor>();
 		
 		
-		public Pelicula() {
-		}
+		
 		public  Pelicula(String a, ArrayList<Actor> b) {
 			titulo = a;
 			actores = b;
+		}
+		
+		public String getTitulo() {
+			return titulo;
+		}
+		
+		public ArrayList<Actor> getListaActor(){
+			return actores;
 		}
 		
 		public void setTitulo(String a) {

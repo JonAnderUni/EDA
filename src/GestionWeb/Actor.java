@@ -1,14 +1,19 @@
 package GestionWeb;
 public class Actor {
 
-	public String nombre;
+	private String nombre;
 	//public String apellido;
 	
-	public Actor() {}
+	
 	public Actor(String a, String b) {
 		nombre = a;
 		//apellido =b;
 	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
 	public void setNombre(String a) {
 		nombre = a;
 	}

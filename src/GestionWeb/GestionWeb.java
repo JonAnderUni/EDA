@@ -10,17 +10,17 @@ public class GestionWeb {
 	public GestionWeb() {}
 	
 	public void addPelicula(Pelicula a) {
-		ListaPeliculas.getListaPeliculas().getHash().put(a.titulo, a);
+		ListaPeliculas.getListaPeliculas().getHash().put(a.getTitulo(), a);
 	}
-	public void addListaPeliculas(HashMap<String, Pelicula> a) {
-		ListaPeliculas.getListaPeliculas().getHash().putAll(a);
+	public void addListaPeliculas(HashMap<String, Pelicula> h) {
+		ListaPeliculas.getListaPeliculas().addListaPeliculas(h);;
 	}
 	public void addActorGeneral(Actor a) {
-		ListaActores.getListaActores().getHash().put(a.nombre, a);
+		ListaActores.getListaActores().addActorGeneral(a);;
 	}
-	public void addListaActorGeneral(HashMap<String, Actor> a) {
+	public void addListaActorGeneral(HashMap<String, Actor> h) {
 		
-			ListaActores.getListaActores().getHash().putAll(a);
+			ListaActores.getListaActores().getHash().putAll(h);
 		
 	}
 	public boolean esPrimerString(String a,  String b) {
@@ -33,13 +33,13 @@ public class GestionWeb {
 	}
 	
 	public Actor buscarActor(String a) {
-		return ListaActores.getListaActores().getHash().get(a);
+		return ListaActores.getListaActores().buscarActor(a);
 	}
 	public Pelicula buscarPeli(String a) {
-		return ListaPeliculas.getListaPeliculas().getHash().get(a);
+		return ListaPeliculas.getListaPeliculas().buscarPeli(a);
 	}
 	public ArrayList<Actor> actoresDePeli(String a) {
-		return buscarPeli(a).actores;
+		return buscarPeli(a).getListaActor();
 	}
 	public void pelisDeActor(Actor a) {
 		

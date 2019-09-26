@@ -18,4 +18,14 @@ public class ListaActores {
 	public HashMap<String, Actor> getHash(){
 		return lista;
 	}
+	public Actor buscarActor(String a) {
+		return lista.get(a);
+	}
+	public void addListaActorGeneral(HashMap<String, Actor> h) {
+		lista.putAll(h);
+	}
+	public void addActorGeneral(Actor a) {
+		lista.put(a.getNombre(), a);
+	}
 }
+	
