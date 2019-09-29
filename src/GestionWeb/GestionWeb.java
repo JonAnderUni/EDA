@@ -82,7 +82,12 @@ public class GestionWeb {
 		quicksort(actoresGeneral, 0, actoresGeneral.size()-1);
 	}
 	public void borrarActor(Actor a) {
+		/*hay que borrarlo de las peliculas en las sale tambien??????*/
+		for(Pelicula p : pelisDeActor(a)) {
+			ListaPeliculas.getListaPeliculas().getHash().remove(p);
+		}
 		ListaActores.getListaActores().getHash().remove(a.nombre);
+
 	}
 
 	/*public void buscarActor(String n, String a) {
