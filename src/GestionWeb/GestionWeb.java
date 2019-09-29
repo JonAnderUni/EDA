@@ -51,7 +51,7 @@ public class GestionWeb {
 		}
 		return lista;
 	}
-	public void quicksort(ArrayList<Actor> AG, int c1, int c2) {
+	private void quicksort(ArrayList<Actor> AG, int c1, int c2) {
 		if(AG.isEmpty()) {	
 		}else {
 			Actor pivote = AG.get(c1);
@@ -80,6 +80,9 @@ public class GestionWeb {
 		ArrayList<Actor> actoresGeneral = new ArrayList<Actor>();
 		actoresGeneral = (ArrayList<Actor>) ListaActores.getListaActores().getHash().values();
 		quicksort(actoresGeneral, 0, actoresGeneral.size()-1);
+	}
+	public void borrarActor(Actor a) {
+		ListaActores.getListaActores().getHash().remove(a.nombre);
 	}
 
 	/*public void buscarActor(String n, String a) {
