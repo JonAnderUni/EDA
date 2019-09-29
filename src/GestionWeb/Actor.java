@@ -1,7 +1,7 @@
 package GestionWeb;
 public class Actor {
 
-	private String nombre;
+	public String nombre;
 	//public String apellido;
 	
 	
@@ -17,6 +17,7 @@ public class Actor {
 	public void setNombre(String a) {
 		nombre = a;
 	}
+	
 	/*public  void setApellido(String a) {
 		apellido = a;
 	}*/
