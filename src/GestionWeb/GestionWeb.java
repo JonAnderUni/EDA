@@ -1,6 +1,7 @@
 package GestionWeb;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class GestionWeb {
 
@@ -41,8 +42,14 @@ public class GestionWeb {
 	public ArrayList<Actor> actoresDePeli(String a) {
 		return buscarPeli(a).getListaActor();
 	}
-	public void pelisDeActor(Actor a) {
-		
+	public ArrayList<Pelicula> pelisDeActor(Actor a) {
+		ArrayList<Pelicula> lista = new ArrayList<Pelicula>();
+		for( Entry<String, Pelicula> p : ListaPeliculas.getListaPeliculas().getHash().entrySet()) {
+			if(p.getValue().getListaActor().contains(a)) {
+				lista.add(p.getValue());
+			}
+		}
+		return lista;
 	}
 /*	public void quicksort(ArrayList<Actor> AG, int c1, int c2) {
 		if(AG.isEmpty()) {	
