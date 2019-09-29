@@ -5,7 +5,7 @@ public class Pelicula {
 
 		private String titulo;
 		private ArrayList<Actor> actores = new ArrayList<Actor>();
-		
+		private int recaudado;
 		
 		
 		public  Pelicula(String a, ArrayList<Actor> b) {
@@ -37,5 +37,11 @@ public class Pelicula {
 			for (Actor p: a) {
 				actores.add(p);
 			}
+		}
+		public void setRecaudado(int a) {
+			recaudado = a;
+		}
+		public void incrementarRecaudado(int a) {
+			recaudado = recaudado + a;
 		}
 }
