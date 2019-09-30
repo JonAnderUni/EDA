@@ -84,7 +84,7 @@ public class GestionWeb {
 	public void borrarActor(Actor a) {
 		/*hay que borrarlo de las peliculas en las sale tambien??????*/
 		for(Pelicula p : pelisDeActor(a)) {
-			ListaPeliculas.getListaPeliculas().getHash().remove(p);
+			ListaPeliculas.getListaPeliculas().getHash().get(p.getTitulo()).getListaActor().remove(a);
 		}
 		ListaActores.getListaActores().getHash().remove(a.nombre);
 
