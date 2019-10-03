@@ -21,13 +21,12 @@ public class ListaPeliculas {
 	public HashMap<String, Pelicula> getHash() {
 		return lista;
 	}
-	
+
 	public Pelicula buscarPeli(String a) {
 		return lista.get(a);
 	}
-	
+
 	public void addListaPeliculas(HashMap<String, Pelicula> h) {
 		lista.putAll(h);
 	}
 }
-
