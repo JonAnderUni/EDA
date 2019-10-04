@@ -112,24 +112,21 @@ public class GestionWeb {
 
 	}
 	
-	public void cargarDatos() {
-		// Todavia no esta probado
+	public static void cargarDatos() {
+		// Probado que lo recorre bien, no se si se guardan bien los datos
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader("FilmsActors20162017.txt"));
 			String line = null;
 			while ((line = entrada.readLine()) != null) {
-				String[] separarPeli = line.split(" --> ");
-				ListaPeliculas.getListaPeliculas().getHash().put(separarPeli[0],
-						new Pelicula(separarPeli[0], new ArrayList<Actor>()));
+				String[] separarPeli = line.split(" ---> ");
+				ListaPeliculas.getListaPeliculas().getHash().put(separarPeli[0],new Pelicula(separarPeli[0], new ArrayList<Actor>()));
 				String[] separarActores = separarPeli[1].split(" &&& ");
 				for (int i = 0; i < separarActores.length; i++) {
-					if (ListaActores.getListaActores().getHash().containsKey(separarActores[i])) {
-						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0])
-								.addActor(ListaActores.getListaActores().getHash().get(separarActores[i]));
-						;
+					if (!ListaActores.getListaActores().getHash().containsKey(separarActores[i])) {
+						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0]).addActor(ListaActores.getListaActores().getHash().get(separarActores[i]));
+						
 					} else {
-						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0])
-								.addActor(new Actor(separarActores[i]));
+						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0]).addActor(new Actor(separarActores[i]));
 					}
 
 				}
@@ -137,7 +134,7 @@ public class GestionWeb {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 
 	/*
@@ -156,5 +153,7 @@ public class GestionWeb {
 	 * (esPrimerString(AG.get(medio).nombre, a.nombre) == false){ j = medio - 1;
 	 * }else { i = medio +1; } } return pos; }
 	 */
-
+	public static void main(String[] args) {
+		cargarDatos();
+	}
 }
