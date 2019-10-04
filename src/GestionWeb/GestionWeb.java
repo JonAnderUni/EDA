@@ -1,5 +1,6 @@
 package GestionWeb;
 
+import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -109,6 +110,34 @@ public class GestionWeb {
 		}
 		ListaActores.getListaActores().getHash().remove(a.nombre);
 
+	}
+	
+	public void cargarDatos() {
+		// Todavia no esta probado
+		try {
+			BufferedReader entrada = new BufferedReader(new FileReader("FilmsActors20162017.txt"));
+			String line = null;
+			while ((line = entrada.readLine()) != null) {
+				String[] separarPeli = line.split(" --> ");
+				ListaPeliculas.getListaPeliculas().getHash().put(separarPeli[0],
+						new Pelicula(separarPeli[0], new ArrayList<Actor>()));
+				String[] separarActores = separarPeli[1].split(" &&& ");
+				for (int i = 0; i < separarActores.length; i++) {
+					if (ListaActores.getListaActores().getHash().containsKey(separarActores[i])) {
+						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0])
+								.addActor(ListaActores.getListaActores().getHash().get(separarActores[i]));
+						;
+					} else {
+						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0])
+								.addActor(new Actor(separarActores[i]));
+					}
+
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*

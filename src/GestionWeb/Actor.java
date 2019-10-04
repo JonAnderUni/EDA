@@ -5,7 +5,7 @@ public class Actor {
 	public String nombre;
 	// public String apellido;
 
-	public Actor(String a, String b) {
+	public Actor(String a) {
 		nombre = a;
 		// apellido =b;
 	}
