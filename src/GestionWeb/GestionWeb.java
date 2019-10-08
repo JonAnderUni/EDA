@@ -18,7 +18,6 @@ public class GestionWeb {
 
 	public void addListaPeliculas(HashMap<String, Pelicula> h) {
 		ListaPeliculas.getListaPeliculas().addListaPeliculas(h);
-		;
 	}
 
 	public void addActorGeneral(Actor a) {
