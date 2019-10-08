@@ -97,10 +97,11 @@ public class GestionWeb {
 		}
 	}
 
-	public void ordenarActoresGeneral() {
+	public ArrayList<Actor> ordenarActoresGeneral() {
 		ArrayList<Actor> actoresGeneral = new ArrayList<Actor>();
 		actoresGeneral = (ArrayList<Actor>) ListaActores.getListaActores().getHash().values();
 		quicksort(actoresGeneral, 0, actoresGeneral.size() - 1);
+		return actoresGeneral;
 	}
 
 	public void borrarActor(Actor a) {
@@ -111,21 +112,24 @@ public class GestionWeb {
 		ListaActores.getListaActores().getHash().remove(a.nombre);
 
 	}
-	
-	public static void cargarDatos() {
+
+	public void cargarDatos() {
 		// Probado que lo recorre bien, no se si se guardan bien los datos
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader("FilmsActors20162017.txt"));
 			String line = null;
 			while ((line = entrada.readLine()) != null) {
 				String[] separarPeli = line.split(" ---> ");
-				ListaPeliculas.getListaPeliculas().getHash().put(separarPeli[0],new Pelicula(separarPeli[0], new ArrayList<Actor>()));
+				ListaPeliculas.getListaPeliculas().getHash().put(separarPeli[0],
+						new Pelicula(separarPeli[0], new ArrayList<Actor>()));
 				String[] separarActores = separarPeli[1].split(" &&& ");
 				for (int i = 0; i < separarActores.length; i++) {
 					if (ListaActores.getListaActores().getHash().containsKey(separarActores[i])) {
-						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0]).addActor(ListaActores.getListaActores().getHash().get(separarActores[i]));
+						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0])
+								.addActor(ListaActores.getListaActores().getHash().get(separarActores[i]));
 					} else {
-						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0]).addActor(new Actor(separarActores[i]));
+						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0])
+								.addActor(new Actor(separarActores[i]));
 						ListaActores.getListaActores().getHash().put(separarActores[i], new Actor(separarActores[i]));
 					}
 
@@ -134,7 +138,7 @@ public class GestionWeb {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 	}
 
 	/*
@@ -153,7 +157,8 @@ public class GestionWeb {
 	 * (esPrimerString(AG.get(medio).nombre, a.nombre) == false){ j = medio - 1;
 	 * }else { i = medio +1; } } return pos; }
 	 */
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 		cargarDatos();
-	}
+	}*/
 }
