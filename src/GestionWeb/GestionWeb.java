@@ -122,11 +122,11 @@ public class GestionWeb {
 				ListaPeliculas.getListaPeliculas().getHash().put(separarPeli[0],new Pelicula(separarPeli[0], new ArrayList<Actor>()));
 				String[] separarActores = separarPeli[1].split(" &&& ");
 				for (int i = 0; i < separarActores.length; i++) {
-					if (!ListaActores.getListaActores().getHash().containsKey(separarActores[i])) {
+					if (ListaActores.getListaActores().getHash().containsKey(separarActores[i])) {
 						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0]).addActor(ListaActores.getListaActores().getHash().get(separarActores[i]));
-						
 					} else {
 						ListaPeliculas.getListaPeliculas().getHash().get(separarPeli[0]).addActor(new Actor(separarActores[i]));
+						ListaActores.getListaActores().getHash().put(separarActores[i], new Actor(separarActores[i]));
 					}
 
 				}
