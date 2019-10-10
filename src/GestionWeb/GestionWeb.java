@@ -6,9 +6,7 @@ import java.util.Map.Entry;
 
 public class GestionWeb {
 
-	// public ListaPeliculas pelis;
-	// public ListaActores actoresGeneral;
-
+	
 	public GestionWeb() {
 	}
 
@@ -22,13 +20,10 @@ public class GestionWeb {
 
 	public void addActorGeneral(Actor a) {
 		ListaActores.getListaActores().addActorGeneral(a);
-		;
 	}
 
 	public void addListaActorGeneral(HashMap<String, Actor> h) {
-
 		ListaActores.getListaActores().getHash().putAll(h);
-
 	}
 
 	public boolean esPrimerString(String a, String b) {
@@ -104,16 +99,14 @@ public class GestionWeb {
 	}
 
 	public void borrarActor(Actor a) {
-		/* hay que borrarlo de las peliculas en las sale tambien?????? */
 		for (Pelicula p : pelisDeActor(a)) {
 			ListaPeliculas.getListaPeliculas().getHash().get(p.getTitulo()).getListaActor().remove(a);
 		}
 		ListaActores.getListaActores().getHash().remove(a.nombre);
-
 	}
 
 	public void cargarDatos() {
-		// Probado que lo recorre bien, no se si se guardan bien los datos
+		
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader("FilmsActors20162017.txt"));
 			String line = null;
@@ -131,9 +124,7 @@ public class GestionWeb {
 								.addActor(new Actor(separarActores[i]));
 						ListaActores.getListaActores().getHash().put(separarActores[i], new Actor(separarActores[i]));
 					}
-
 				}
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,8 +147,8 @@ public class GestionWeb {
 	 * (esPrimerString(AG.get(medio).nombre, a.nombre) == false){ j = medio - 1;
 	 * }else { i = medio +1; } } return pos; }
 	 */
-	
-	/*public static void main(String[] args) {
-		cargarDatos();
-	}*/
+
+	/*
+	 * public static void main(String[] args) { cargarDatos(); }
+	 */
 }
