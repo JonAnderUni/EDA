@@ -13,18 +13,19 @@ public class DoubleLinkedList<T> implements ListADT<T>{
 	@Override
 	public void setDescr(String nom) {
 		// TODO Auto-generated method stub
+		descr = nom;
 		
 	}
 
 	@Override
 	public String getDescr() {
 		// TODO Auto-generated method stub
-		return null;
+		return descr;
 	}
 
 	@Override
 	public T removeFirst() {
-		// TODO Auto-generated method stub
+		// Hay que quitar las conexiones al primero y devolver con un nodo auxiliar, igual para removelast
 		return null;
 	}
 
@@ -36,25 +37,25 @@ public class DoubleLinkedList<T> implements ListADT<T>{
 
 	@Override
 	public T remove(T elem) {
-		// TODO Auto-generated method stub
+		// Buscar el elemento T y quitarlo, se puede usar la funcion find()
 		return null;
 	}
 
 	@Override
 	public T first() {
 		// TODO Auto-generated method stub
-		return null;
+		return (T) last.next;
 	}
 
 	@Override
 	public T last() {
 		// TODO Auto-generated method stub
-		return null;
+		return (T) last;
 	}
 
 	@Override
 	public boolean contains(T elem) {
-		// TODO Auto-generated method stub
+		// Se puede usar la funcion find
 		return false;
 	}
 
@@ -66,14 +67,15 @@ public class DoubleLinkedList<T> implements ListADT<T>{
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+		if(last == null)
+			return true;
 		return false;
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return count;
 	}
 
 	@Override
