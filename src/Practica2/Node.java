@@ -6,5 +6,12 @@ public class Node<T> {
 	Node prev;
 	public Node(T data) {
 		this.data = data;
+		prev = new Node<T>();
+		next = new Node<T>();
+	}
+	public Node() {
+		data = null;
+		prev = new Node<T>();
+		next = new Node<T>();
 	}
 }
