@@ -106,21 +106,24 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	// an iterator, doesn't implement remove() since it's optional
 	private class ListIterator implements Iterator<T> {
-
+		Node<T> act;
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
+			
+			return act != null;
 		}
 
 		@Override
 		public T next() {
-			// TODO Auto-generated method stub
-			return null;
+			T data = act.data;
+			act=act.next;
+			return data;
 		}
 
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-
+		public ListIterator() {
+			act = first;
+		}
 	} // private class
 
 	public void visualizarNodos() {
