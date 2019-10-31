@@ -11,6 +11,7 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 		nuevo.prev = last;
 		last.next = nuevo;
 		first.prev = nuevo;
+		first = nuevo;
 	}
 
 	public void addToRear(T elem) {
