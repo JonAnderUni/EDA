@@ -9,7 +9,7 @@
     * @param index   the index into the array to which the element is to be
     *                inserted.
     * @param element the element to be inserted into the array   
-    */   public void add (int index, T element);   /**  
+    */   public void add  (int index, T element);   /**  
     * Sets the element at the specified index. 
     *
     * @param index   the index into the array to which the element is to be set
