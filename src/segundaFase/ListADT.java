@@ -4,10 +4,10 @@ import java.util.Iterator;
 
 public interface ListADT<T> {
 
-public void setDescr(String nom);
+public void  setDescr(String nom);
 // Actualiza el nombre de la lista
 
-public String getDescr();
+public String  getDescr();
 // Devuelve el nombre de la lista
 
 public T removeFirst() ;

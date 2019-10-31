@@ -131,7 +131,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	}
 
 	// an iterator, doesn't implement remove() since it's optional
-	private class ListIterator implements Iterator<T> {
+	private class  ListIterator implements Iterator<T> {
 		Node<T> act;
 		@Override
 		public boolean hasNext() {
