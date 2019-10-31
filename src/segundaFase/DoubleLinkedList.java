@@ -64,7 +64,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		}
 		act.next.prev = act.prev;
 		act.prev.next = act.next;
-		last = act.prev;
+		
 		return (T) act;
 	}
 
