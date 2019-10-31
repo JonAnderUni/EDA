@@ -2,7 +2,7 @@ package segundaFase;
 
 import java.util.Iterator;
 
-public interface ListADT<T> {
+public interface  ListADT<T> {
 
 public void  setDescr(String nom);
 // Actualiza el nombre de la lista

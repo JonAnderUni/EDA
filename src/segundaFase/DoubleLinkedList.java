@@ -153,7 +153,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	} // private class
 
 	public void visualizarNodos() {
-		System.out.println(this.toString());
+		System.out.println(this.toString( ));
 	}
 
 	@Override
