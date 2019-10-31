@@ -145,7 +145,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			act=act.next;
 			return data;
 		}
-
+		// comentario para subir a git
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
 		public ListIterator() {
 			act = first;
