@@ -17,7 +17,13 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 	public void addToRear(T elem) {
 	// a�ade un elemento al final 
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-
+		Node<T> nuevo = null;
+		nuevo.data = elem;
+		nuevo.next = first;
+		nuevo.prev = last;
+		last.next = nuevo;
+		first.prev = nuevo;
+		last = nuevo;
 	}
 	
 	public void addAfter(T elem, T target) {
