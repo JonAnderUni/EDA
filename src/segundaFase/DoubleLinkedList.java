@@ -89,6 +89,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		if (isEmpty())
 			return false;
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+		if(find(elem).equals(elem)) {
+			return true;
+		}
 		return false;//Puesto para que no salte error
 	}
 
