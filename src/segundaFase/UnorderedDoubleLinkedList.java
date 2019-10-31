@@ -29,6 +29,20 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 	public void addAfter(T elem, T target) {
 	// A�ade elem detr�s de otro elemento concreto, target,  que ya se encuentra en la lista
 		// �COMPLETAR OPCIONAL!
+		Node<T> nuevo = null;
+		Node<T> act = first;
+		Boolean enc = false;
+		while(enc == false) {
+			if(act.data == target) {
+				enc = true;
+			}
+			act = act.next;
+		}
+		nuevo.data = elem;
+		nuevo.next = act.next;
+		nuevo.prev = act;
+		act.next = nuevo;
+		
 	}
 
 }
