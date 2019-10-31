@@ -158,7 +158,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	@Override
 	public String toString() {
-		String result = new String(); 
+		String result = new  String(); 
 		Iterator<T> it = iterator();
 		while (it.hasNext()) {
 			T elem = it.next();

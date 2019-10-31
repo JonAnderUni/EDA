@@ -22,7 +22,7 @@ public T remove(T elem);
 public T first();
 //Da acceso al primer elemento de la lista
 
-public T last();
+public T  last();
 //Da acceso al �ltimo elemento de la lista
 
 public boolean contains(T elem);
