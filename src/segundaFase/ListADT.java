@@ -10,7 +10,7 @@ public void setDescr(String nom);
 public String getDescr();
 // Devuelve el nombre de la lista
 
-public T removeFirst();
+public T removeFirst() ;
 //Elimina el primer elemento de la lista
 
 public T removeLast();
