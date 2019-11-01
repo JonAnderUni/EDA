@@ -1,5 +1,6 @@
 package segundaFase;
 
+import java.util.Iterator;
 
 public class OrderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements OrderedListADT<T> {
 	
@@ -45,8 +46,12 @@ public class OrderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements O
 		}
 	}
 	public void merge(DoubleLinkedList<T> zerrenda){
-
-
+		Iterator<T> it = zerrenda.iterator();
+		Node<T> act = zerrenda.first;
+		while(!it.hasNext()) {
+			add(act.data);
+			act = act.next;
+		}
 
 	}
 	
