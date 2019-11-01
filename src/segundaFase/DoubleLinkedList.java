@@ -36,7 +36,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		act.prev.next = act.next;
 		first = act.next;
 
-		return (T) act;
+		return act.data;
 	}
 
 	public T removeLast() {
@@ -47,7 +47,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		act.next.prev = act.prev;
 		act.prev.next = act.next;
 		last = act.prev;
-		return (T) act;
+		return act.data;
 	}
 
 	public T remove(T elem) {
@@ -56,16 +56,16 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		Boolean found = false;
 		Node<T> act = first;
 		while (found == false) {
-			if(act.data.equals(elem))  {
-				found =true;
-			}else {
+			if (act.data.equals(elem)) {
+				found = true;
+			} else {
 				act = act.next;
 			}
 		}
 		act.next.prev = act.prev;
 		act.prev.next = act.next;
 		last = act.prev;
-		return (T) act;
+		return act.data;
 	}
 
 	public T first() {
@@ -89,10 +89,10 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		if (isEmpty())
 			return false;
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-		if(find(elem).equals(elem)) {
+		if (find(elem).equals(elem)) {
 			return true;
 		}
-		return false;//Puesto para que no salte error
+		return false;// Puesto para que no salte error
 	}
 
 	public T find(T elem) {
@@ -104,16 +104,16 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		int temp;
 		temp = 0;
 		while (found == false && temp <= count) {
-			if(act.data.equals(elem))  {
-				found =true;
-			}else {
+			if (act.data.equals(elem)) {
+				found = true;
+			} else {
 				act = act.next;
 			}
 		}
-		if(found) {
-			return (T) act;
+		if (found) {
+			return act.data;
 		}
-		return null;//Puesto para que no salte error
+		return null;// Puesto para que no salte error
 	}
 
 	public boolean isEmpty()
@@ -134,20 +134,22 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	}
 
 	// an iterator, doesn't implement remove() since it's optional
-	private class  ListIterator implements Iterator<T> {
+	private class ListIterator implements Iterator<T> {
 		Node<T> act;
+
 		@Override
 		public boolean hasNext() {
-			
+
 			return act != null;
 		}
 
 		@Override
 		public T next() {
-			T data  = act.data;
-			act=act.next;
+			T data = act.data;
+			act = act.next;
 			return data;
 		}
+
 		// comentario para subir a git
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
 		public ListIterator() {
@@ -156,12 +158,12 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	} // private class
 
 	public void visualizarNodos() {
-		System.out.println(this.toString( ));
+		System.out.println(this.toString());
 	}
 
 	@Override
 	public String toString() {
-		String result = new  String(); 
+		String result = new String();
 		Iterator<T> it = iterator();
 		while (it.hasNext()) {
 			T elem = it.next();
