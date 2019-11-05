@@ -68,8 +68,8 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		
 		return (T) act;
 //=======
-		last = act.prev;
-		return act.data;
+		//last = act.prev;
+		//return act.data;
 //>>>>>>> branch 'master' of https://github.com/JonAnderUni/EDA
 	}
 
