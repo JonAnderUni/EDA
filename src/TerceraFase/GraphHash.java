@@ -4,7 +4,7 @@ import java.util.*;
 public class GraphHash {
 	HashMap<String, ArrayList<String>> g;
 	
-	public void crearGrafo(ListaActricesAtcores lActores) {
+	public void crearGrafo( ) {
 		
 		
 	}
@@ -21,7 +21,21 @@ public class GraphHash {
 	}
 	public boolean estanConectados(String a1, String a2) {
 		Boolean enc = false;
-		String comprobados[];
-		return false;
+		ArrayList<String> comprobados = new ArrayList<String>();
+		Queue<String> porComprobar = new LinkedList<String>();
+		porComprobar.offer(a1);
+		String aux;
+		while((porComprobar.isEmpty() == false) && enc == false) {
+			aux = porComprobar.poll();
+			comprobados.add(a1);
+			if(aux == a2) {
+				enc = true;
+			}else {
+				for (String i : g.get(a1)) {
+					//
+				}
+			}
+		}
+		return enc;
 	}
 }
