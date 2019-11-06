@@ -52,7 +52,12 @@ public class GraphHash {
 			if(g2.get(aux).contains(a2)) {
 				enc = true;
 			}else {
-				for (String i : g2.get(aux)) {
+				g2.get(aux).stream().forEach((p) -> g.get(p).forEach((p2) -> {
+					if(PelisComprobados.contains(p2) == false) {
+						PelisporComprobar.offer(p2);
+					}
+				}));
+				/*for (String i : g2.get(aux)) {
 					for (String j : g.get(i)) {
 						if(PelisComprobados.contains(j)) {
 							
@@ -60,12 +65,7 @@ public class GraphHash {
 							PelisporComprobar.offer(j);
 						}
 					}
-					/*if(PelisComprobados.contains(i)) {
-						
-					}else {
-						PelisporComprobar.offer(i);
-					}*/
-				}
+				}*/
 			}
 		}
 		return enc;
