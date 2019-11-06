@@ -8,8 +8,8 @@ import GestionWeb.Pelicula;
 import GestionWeb.GestionWeb;
 
 public class GraphHash {
-	HashMap<String, ArrayList<String>> g;
-	HashMap<String, ArrayList<String>> g2;
+	HashMap<String, ArrayList<String>> g;//actor, pelis
+	HashMap<String, ArrayList<String>> g2;//peli, actores
 	GestionWeb gw = new GestionWeb();
 	
 	
@@ -41,23 +41,30 @@ public class GraphHash {
 	}
 	public boolean estanConectados(String a1, String a2) {
 		Boolean enc = false;
-		ArrayList<String> comprobados = new ArrayList<String>();
-		Queue<String> porComprobar = new LinkedList<String>();
-		porComprobar.offer(a1);
+		ArrayList<String> PelisComprobados = new ArrayList<String>();
+		Queue<String> PelisporComprobar = new LinkedList<String>();
+		g.get(a1).stream().forEach((p) -> PelisporComprobar.offer(p));
+		//PelisporComprobar.offer(a1);
 		String aux;
-		while((porComprobar.isEmpty() == false) && enc == false) {
-			aux = porComprobar.poll();
-			comprobados.add(a1);
-			if(aux == a2) {
+		while((PelisporComprobar.isEmpty() == false) && enc == false) {
+			aux = PelisporComprobar.poll();
+			PelisComprobados.add(aux);
+			if(g2.get(aux).contains(a2)) {
 				enc = true;
 			}else {
-				for (String i : g.get(a1)) {
-					//
-					if(comprobados.contains(i)) {
+				for (String i : g2.get(aux)) {
+					for (String j : g.get(i)) {
+						if(PelisComprobados.contains(j)) {
+							
+						}else {
+							PelisporComprobar.offer(j);
+						}
+					}
+					/*if(PelisComprobados.contains(i)) {
 						
 					}else {
-						porComprobar.offer(i);
-					}
+						PelisporComprobar.offer(i);
+					}*/
 				}
 			}
 		}
