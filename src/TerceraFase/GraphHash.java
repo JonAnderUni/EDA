@@ -21,7 +21,7 @@ public class GraphHash {
 			for (Pelicula j : gw.pelisDeActor(i)) {
 				if(g2.containsKey(j.getTitulo())) {				
 				}else {
-					g2.put(j.getTitulo(), gw.actoresDePeli(j.getTitulo()));
+					g2.put(j.getTitulo(), gw.actoresDePeli2(j.getTitulo()));
 				}
 			}
 			
