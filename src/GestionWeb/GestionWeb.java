@@ -3,6 +3,7 @@ package GestionWeb;
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class GestionWeb {
 
@@ -45,6 +46,12 @@ public class GestionWeb {
 
 	public ArrayList<Actor> actoresDePeli(String a) {
 		return buscarPeli(a).getListaActor();
+	}
+	
+	public ArrayList<String> actoresDePeli2(String a) {
+		ArrayList<String> p = new ArrayList<String>();
+		p = (ArrayList<String>) buscarPeli(a).getListaActor().stream().map(Actor :: getNombre).collect(Collectors.toList());
+		return p;
 	}
 
 	public ArrayList<Pelicula> pelisDeActor(Actor a) {
@@ -107,6 +114,8 @@ public class GestionWeb {
 		quicksort(actoresGeneral, 0, actoresGeneral.size() - 1);
 		return actoresGeneral;
 	}
+	
+	
 
 	public void borrarActor(Actor a) {
 		for (Pelicula p : pelisDeActor(a)) {

@@ -18,6 +18,13 @@ public class GraphHash {
 		
 		for (Actor i : gw.ordenarActoresGeneral()) {
 			g.put(i.nombre, gw.pelisDeActor2(i));
+			for (Pelicula j : gw.pelisDeActor(i)) {
+				if(g2.containsKey(j.getTitulo())) {				
+				}else {
+					g2.put(j.getTitulo(), gw.actoresDePeli(j.getTitulo()));
+				}
+			}
+			
 		}
 		
 	}
