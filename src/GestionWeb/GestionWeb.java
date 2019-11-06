@@ -56,6 +56,16 @@ public class GestionWeb {
 		}
 		return lista;
 	}
+	
+	public ArrayList<String> pelisDeActor2(Actor a) {
+		ArrayList<String> lista = new ArrayList<String>();
+		for (Entry<String, Pelicula> p : ListaPeliculas.getListaPeliculas().getHash().entrySet()) {
+			if (p.getValue().getListaActor().contains(a)) {
+				lista.add(p.getValue().getTitulo());
+			}
+		}
+		return lista;
+	}
 
 	private void quicksort(ArrayList<Actor> AG, int c1, int c2) {
 		if (AG.isEmpty()) {
