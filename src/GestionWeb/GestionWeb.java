@@ -125,7 +125,7 @@ public class GestionWeb {
 	}
 
 	public void cargarDatos() {
-		
+		// hay poner el txt que lo hemos borrado por que no nos dejaba subir mas de 20 megas a la entrega
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader("FilmsActors20162017.txt"));
 			String line = null;

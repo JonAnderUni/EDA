@@ -12,9 +12,8 @@ public class GraphHash {
 	HashMap<String, ArrayList<String>> g2;//peli, actores
 	GestionWeb gw = new GestionWeb();
 	
-	
-	public void crearGrafo(ListaActores la) {
-		gw.cargarDatos();
+ void crearGrafo( ) {
+//>>>>>>> branch 'master' of https://github.com/JonAnderUni/EDA
 		
 		for (Actor i : gw.ordenarActoresGeneral()) {
 			g.put(i.nombre, gw.pelisDeActor2(i));
@@ -41,6 +40,7 @@ public class GraphHash {
 	}
 	public boolean estanConectados(String a1, String a2) {
 		Boolean enc = false;
+//<<<<<<< HEAD
 		ArrayList<String> PelisComprobados = new ArrayList<String>();
 		Queue<String> PelisporComprobar = new LinkedList<String>();
 		g.get(a1).stream().forEach((p) -> PelisporComprobar.offer(p));
@@ -66,6 +66,9 @@ public class GraphHash {
 						}
 					}
 				}*/
+//=======
+		
+//>>>>>>> branch 'master' of https://github.com/JonAnderUni/EDA
 			}
 		}
 		return enc;
